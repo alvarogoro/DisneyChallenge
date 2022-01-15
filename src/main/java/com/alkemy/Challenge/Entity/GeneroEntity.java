@@ -15,10 +15,10 @@ public class GeneroEntity {
 
     private String imagen;
 
-    @OneToMany (mappedBy = "genero", cascade = CascadeType.ALL)
-    private List<PeliculaOSerieEntity> peliculas_o_series;
-
-
     @Column(name = "peliculas_o_series_ asociadas")
     private String peliculasOSeriesAsociadas;
+
+    @OneToMany(mappedBy = "genero", cascade = CascadeType.ALL)
+    private List<PeliculaOSerieEntity> peliculas_o_series;
+
 }

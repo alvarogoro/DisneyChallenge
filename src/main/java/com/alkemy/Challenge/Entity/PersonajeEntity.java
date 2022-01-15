@@ -3,6 +3,8 @@ package com.alkemy.Challenge.Entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table (name = "personaje")
@@ -22,7 +24,8 @@ public class PersonajeEntity {
     private String historia;
 
     @Column (name = "peliculas_o_series_asociadas")
-    @ManyToOne (fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn (name = "titulo", insertable = false, updatable = false)
     private PeliculaOSerieEntity  titulo;
+
+    @ManyToMany(mappedBy = "personajes", cascade = CascadeType.ALL)
+    private List<PeliculaOSerieEntity> peliculasoseries = new ArrayList<>();
 }
